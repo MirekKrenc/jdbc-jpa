@@ -1,12 +1,21 @@
 package krenc.mirek.jdbcjpa.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
+@NamedQuery(name = "find_all_persons", query = "select p from Person p")
 public class Person {
 
+    @Id
+    @GeneratedValue
     private int id;
+
     private String name;
     private String location;
     private Date birthDate;
@@ -19,6 +28,12 @@ public class Person {
         this.name = name;
         this.location = location;
         this.birthDate = bithDate;
+    }
+
+    public Person(String name, String location, Date birthDate) {
+        this.name = name;
+        this.location = location;
+        this.birthDate = birthDate;
     }
 
     public int getId() {

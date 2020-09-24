@@ -13,8 +13,8 @@ import org.springframework.context.event.EventListener;
 
 import java.util.Optional;
 
-@SpringBootApplication
-public class JdbcJpaApplication {
+//@SpringBootApplication
+public class SpringJdbcApplication {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -22,7 +22,7 @@ public class JdbcJpaApplication {
 	private PersonJdbcDAO personJdbcDAO;
 
 	public static void main(String[] args) {
-		SpringApplication.run(JdbcJpaApplication.class, args);
+		SpringApplication.run(SpringJdbcApplication.class, args);
 	}
 
 	@Bean
