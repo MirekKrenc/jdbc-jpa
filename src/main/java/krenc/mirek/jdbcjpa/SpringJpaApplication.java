@@ -13,7 +13,7 @@ import org.springframework.context.event.EventListener;
 
 import java.util.Date;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class SpringJpaApplication {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());

@@ -9,8 +9,8 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Repository
-@Transactional
+//@Repository
+//@Transactional
 public class PersonJpaRepository {
 
     //connect to database

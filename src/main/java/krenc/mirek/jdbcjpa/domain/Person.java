@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
+//@Entity
 @NamedQuery(name = "find_all_persons", query = "select p from Person p")
 public class Person {
 
