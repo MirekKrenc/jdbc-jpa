@@ -36,9 +36,9 @@ public class Passport {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Passport{" +
                 "id=" + id +
-                ", name='" + number + '\'' +
+                ", number='" + number + '\'' +
                 '}';
     }
 }

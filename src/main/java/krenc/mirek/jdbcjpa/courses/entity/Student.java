@@ -2,10 +2,7 @@ package krenc.mirek.jdbcjpa.courses.entity;
 
 import com.sun.istack.Nullable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student {
@@ -16,6 +13,9 @@ public class Student {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private Passport passport;
 
     public Student(String name) {
         this.name = name;
@@ -34,6 +34,14 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+
+    public Passport getPassport() {
+        return passport;
     }
 
     @Override

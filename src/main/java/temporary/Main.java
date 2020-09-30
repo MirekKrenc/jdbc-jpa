@@ -1,33 +1,41 @@
 package temporary;
 
-import java.util.function.Function;
-
 import static java.lang.System.out;
 
 public class Main {
 
+    static int largest = 0 ;
+    static int index = 0;
+
     public static void main(String[] args) {
-        out.println("Hello");
-        out.println(abs(-10));
 
-        out.println(Test.sqrt(Test.fun, 10));
+        String s = "AAAAAAAAAAAAAAAAA";
+        int i = 10;
+        int j = 11;
+
+        findPalindrome(s);
     }
 
-    static int abs(int a) {
-        if (a<0) return -a;
-        else return a;
+    static void findPalindrome(String s) {
+
+        for (int i=0; i<s.length(); i++) {
+            findmirror(s, i, i);
+            findmirror(s, i, i+1);
+        }
+        out.println(s.substring(index, index + largest));
+
     }
-}
 
-class Test {
-    public Test() {
-        out.println("Konstruktor");
-    }
+    private static void findmirror(String s, int start, int end) {
 
-    public static Function<Integer, Integer> fun = x -> { return x*x;};
-
-    public static Integer sqrt(Function<Integer, Integer> f, Integer x) {
-        return f.apply(x);
+        while(start>=0 && end<s.length() && s.charAt(start) == s.charAt(end)) {
+            start--;
+            end++;
+        }
+        if (largest < end - start -1) {
+            largest = end - start - 1;
+            index = start + 1;
+        }
     }
 
 }
