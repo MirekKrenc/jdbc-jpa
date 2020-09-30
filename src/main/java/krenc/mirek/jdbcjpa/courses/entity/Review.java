@@ -1,9 +1,6 @@
 package krenc.mirek.jdbcjpa.courses.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Review {
@@ -16,6 +13,9 @@ public class Review {
 
     @Column(nullable = true)
     private String description;
+
+    @ManyToOne
+    private Course course;
 
     public Review(String rating, String description) {
         this.rating = rating;
@@ -43,6 +43,14 @@ public class Review {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Override

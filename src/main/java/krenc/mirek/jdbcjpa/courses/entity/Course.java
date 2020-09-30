@@ -5,6 +5,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NamedQueries(
@@ -26,6 +28,9 @@ public class Course {
     @UpdateTimestamp
     private LocalDateTime updated_time;
 
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    private List<Review> reviews = new ArrayList<>();
+
     public Course(String name) {
         this.name = name;
     }
@@ -43,6 +48,18 @@ public class Course {
 
     public Long getId() {
         return id;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
+    public void RemoveReview(Review review) {
+        this.reviews.remove(review);
     }
 
     @Override

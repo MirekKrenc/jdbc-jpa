@@ -3,7 +3,6 @@ package krenc.mirek.jdbcjpa.courses.repository;
 import krenc.mirek.jdbcjpa.SpringJpaCourseApplication;
 import krenc.mirek.jdbcjpa.courses.entity.Passport;
 import krenc.mirek.jdbcjpa.courses.entity.Student;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
