@@ -80,4 +80,12 @@ class CourseRepositoryTest {
         logger.info("Course -> {}", review.getCourse());
     }
 
+    @Test
+    @Transactional
+    void retrieveCourseAndStudents() {
+        Course course = courseRepository.findById(10001);
+        logger.info("Course -> {}", course);
+        logger.info("Students -> {}", course.getStudents());
+    }
+
 }

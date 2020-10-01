@@ -3,6 +3,10 @@ package krenc.mirek.jdbcjpa.courses.entity;
 import com.sun.istack.Nullable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Student {
@@ -16,6 +20,12 @@ public class Student {
 
     @OneToOne(fetch = FetchType.LAZY)
     private Passport passport;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "student_course",
+    joinColumns = @JoinColumn(name = "student_id"),
+    inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private Set<Course> courses = new HashSet<>();
 
     public Student(String name) {
         this.name = name;
@@ -42,6 +52,14 @@ public class Student {
 
     public Passport getPassport() {
         return passport;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void addCourse(Course course) {
+        this.courses.add(course);
     }
 
     @Override

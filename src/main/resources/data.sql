@@ -15,3 +15,9 @@ insert into review (id, rating, description, course_id) values (50001,'5', 'Grea
 insert into review (id, rating, description, course_id) values (50002,'4', 'Awesome', 10001);
 insert into review (id, rating, description, course_id) values (50003,'3', 'could be better', 10003);
 insert into review (id, rating, description, course_id) values (50004,'2', 'Not good', 10002);
+
+insert into student_course values (20001, 10001);
+insert into student_course values (20001, 10002);
+insert into student_course values (20003, 10001);
+insert into student_course values (20002, 10001);
+insert into student_course values (20002, 10002);

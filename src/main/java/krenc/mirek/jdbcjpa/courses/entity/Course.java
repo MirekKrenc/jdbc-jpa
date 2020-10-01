@@ -28,8 +28,11 @@ public class Course {
     @UpdateTimestamp
     private LocalDateTime updated_time;
 
-    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "course") //, fetch = FetchType.EAGER)
     private List<Review> reviews = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students = new ArrayList<>();
 
     public Course(String name) {
         this.name = name;
@@ -60,6 +63,14 @@ public class Course {
 
     public void RemoveReview(Review review) {
         this.reviews.remove(review);
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void addStudent(Student student) {
+        this.students.add(student);
     }
 
     @Override

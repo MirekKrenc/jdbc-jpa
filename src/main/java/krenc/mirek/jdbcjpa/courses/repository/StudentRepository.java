@@ -1,5 +1,6 @@
 package krenc.mirek.jdbcjpa.courses.repository;
 
+import krenc.mirek.jdbcjpa.courses.entity.Course;
 import krenc.mirek.jdbcjpa.courses.entity.Passport;
 import krenc.mirek.jdbcjpa.courses.entity.Student;
 import org.slf4j.Logger;
@@ -46,4 +47,14 @@ public class StudentRepository {
         em.persist(student);
     }
 
+    public void insertStudentAndCourse(Student student, Course course) {
+
+        em.persist(student);
+        em.persist(course);
+
+        student.addCourse(course);
+        //course.addStudent(student);
+
+        //em.persist(student);
+    }
 }
